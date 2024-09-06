@@ -19,21 +19,23 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 /______/______/______/______/______/______/______/______/______/______/[TomekK]
 *******************************************************************************''')
 print("Welcome to the treasure island!\n Your mission is to find the treasure!")
-dir=input("You are at a cross road.Where do u want to go?\n Type 'left' or 'right' ").lower()
+dir=input('You are at a cross road.Where do u want to go?\n Type "left" or "right" ').lower()
 if dir=="left":
     print("You've come to a lake.There is an island in the middle of the lake.")
     comm=input("Type 'wait' to wait for a boat.Type 'swim' to swim across. ").lower()
     if comm=="wait":
-        print("You arrived at the island unharmed.There is a house with 3 doors.")
+        print("You've arrived at the island unharmed.There is a house with 3 doors.")
         door_color=input("One red,one yellow and one blue.Which color do you choose? ").lower()
-        if door_color=="red" or door_color=="blue":
-            print("Game over!")
+        if door_color=="red":
+            print("Room is full of fire. Game over!")
         elif door_color=="yellow":
-            print("You Won!")    
+            print("You Won!")   
+        elif door_color=="blue": 
+            print("Room is full of beasts. Game over!")
 
     elif comm=="swim":
-        print("Game over!")    
+        print("You got attacked by an angry trouter. Game over!")    
 else:
-    print("Game over!")    
+    print("You fell into a hole. Game over!")    
       
 
