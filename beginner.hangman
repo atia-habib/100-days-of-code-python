@@ -1,0 +1,121 @@
+
+import random
+
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''']
+
+
+
+word_list=["apple", "laptop", "camel"]
+
+# Step4 Todo1: Create a variable called 'lives' to keep the track of number of lives left.
+lives = 6
+
+# Step1 Todo1: Randomly choose a word from the word_list, assign it to chosen_word and print it.
+chosen_word=random.choice(word_list)
+print(chosen_word)    
+
+# Step2 Todo1: Create an empty string called "placeholder" with the same number of blanks as of the chosen_word
+placeholder=""
+word_length = len(chosen_word)
+for i in range(word_length):
+    placeholder += "_"
+print(placeholder)
+
+# Step3 Todo1: Use a while loop to let the user guess again.
+# We can modify step1 todo2 
+
+# Step1 Todo2: Ask the user to guess a letter & assign their answer to a variable called guess.Make guess lowercase.print guess
+game_over= False
+correct_letters=[]
+
+
+while not game_over:
+    guess=input("\nGuess the letter: ").lower()
+# print(guess)
+
+
+# Step1 Todo3: Check if the letter user guessed (guess) is one of the3 letters in chosen_word. Print "Right" if it is else print "Wrong"
+
+# Step2 Todo2 Create a "display" that puts letter in the right positions & _ in the rest of the string.
+#(use the same for loop as in step1 todo3 and change accordingly)
+
+    display = ""
+    
+    # Step3 Todo2: Change the for loop so that you can keep the previous correct letters in display
+    for let in chosen_word:
+        if guess==let:
+            display += let
+            correct_letters.append(guess)
+        elif let in correct_letters:
+            display += let   
+        else:
+            display += "_"  
+
+    print(display)
+
+    # Step4 Todo2: If guess letter is not in the chosen_word then reduce lives by 1
+    # If lives goes down to 0 then the game should end printing you lose
+
+    if guess not in chosen_word:
+        lives -= 1
+
+        if lives == 0:
+            game_over = True
+            print("You lose!")
+
+    if "_" not in display:
+        game_over= True
+        print("You won!")  
+    print(stages[lives])
+
+# Step4 Todo3: print the ascii art from list stages that correspond to the number of lives the user has remaining        
