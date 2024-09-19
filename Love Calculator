@@ -1,0 +1,18 @@
+name1= input("Enter name1 in uppercase: ")
+name2= input("Enter name2 in uppercase: ")
+
+def calculate_love_score(name1, name2):
+    count1=0
+    count2=0
+    combined_names= name1+name2
+    for i in combined_names:
+        if i in 'TRUE':
+            count1+=1
+     
+    
+    for i in combined_names:
+        if i in 'LOVE':
+            count2+=1
+    
+    return str(count1) + str(count2)   
+print(calculate_love_score(name1, name2))
